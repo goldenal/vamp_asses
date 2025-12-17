@@ -8,8 +8,9 @@ async function bootstrap() {
   
   // Enable global validation pipe for DTO validation
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
+  const port = process.env.PORT || 3000;
+  await app.listen(port);
 
-  await app.listen(3000);
   console.log(`Application is running on: ${await app.getUrl()}`);
 }
 bootstrap();
